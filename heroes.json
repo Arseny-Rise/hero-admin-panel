@@ -1,0 +1,56 @@
+{
+  "heroes": [
+    {
+      "name": "234324",
+      "description": "234",
+      "element": "water",
+      "id": "97b20985-8247-4d72-bae5-7dcd9343c096"
+    },
+    {
+      "name": "234324675675765",
+      "description": "234",
+      "element": "fire",
+      "id": "e0ceeb88-a853-49e5-95b0-f4d91739ff6d"
+    },
+    {
+      "name": "Арсений",
+      "description": "808908",
+      "element": "fire",
+      "id": "43d990c6-fedb-4e20-9221-24f0a8b00269"
+    },
+    {
+      "name": "76556",
+      "description": "567",
+      "element": "fire",
+      "id": "9a6a8c81-99a7-4a26-aba8-476f18492cd7"
+    },
+    {
+      "name": "76556",
+      "description": "567",
+      "element": "earth",
+      "id": "231bf5ab-6041-438a-8828-68071ba66a04"
+    }
+  ],
+  "filters": [
+    [
+      "all",
+      "btn-outline-dark"
+    ],
+    [
+      "fire",
+      "btn-danger"
+    ],
+    [
+      "water",
+      "btn-primary"
+    ],
+    [
+      "wind",
+      "btn-success"
+    ],
+    [
+      "earth",
+      "btn-secondary"
+    ]
+  ]
+}
