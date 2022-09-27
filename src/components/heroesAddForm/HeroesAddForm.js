@@ -3,20 +3,16 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
-import { heroesFetched } from '../heroesList/heroesSlice';
+import { heroesFetched, selectAll } from '../heroesList/heroesSlice';
+import { selectAll as filtersSelectAll } from '../heroesFilters/filtresSlice';
 import { useHttp } from '../../hooks/http.hook';
+import store from '../../store';
 
 const HeroesAddForm = () => {
-    const heroes = useSelector((state) => {
-        return state.heroes.heroes;
-    });
-    const filters = useSelector((state) => {
-        return state.filters.filters;
-    });
+    const heroes = useSelector(selectAll);
+    const filters = useSelector(filtersSelectAll);
     const dispatch = useDispatch();
     const { request } = useHttp();
-
-    // console.log(heroes, filters);
 
     const addNewHero = (values) => {
         const newHero = { ...values };
@@ -26,14 +22,14 @@ const HeroesAddForm = () => {
         dispatch(heroesFetched(newArr));
 
         request('http://localhost:3001/heroes', 'POST', JSON.stringify(newHero)).then((res) => {
-            console.log(res);
-            console.log('Completed');
+            // console.log(res);
+            // console.log('Completed');
         });
     };
 
     const optionsForm = filters.map((item) => (
-        <option key={item} value={item[0]}>
-            {item[0]}
+        <option key={item.id} value={item.name}>
+            {item.name}
         </option>
     ));
 
@@ -50,7 +46,9 @@ const HeroesAddForm = () => {
                     .oneOf(['fire', 'water', 'wind', 'earth'], 'Required element')
                     .required('Required'),
             })}
-            onSubmit={(values) => addNewHero(values)}
+            onSubmit={(values) => {
+                addNewHero(values);
+            }}
         >
             <Form className="border p-4 shadow-lg rounded">
                 <div className="mb-3">

@@ -7,37 +7,19 @@ import Spinner from '../spinner/Spinner';
 
 // import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { heroesFetched } from './heroesSlice';
-import { fetchHeroes } from '../../actions';
-import { createSelector } from 'reselect';
+import { heroesFetched, fetchHeroes, filtredHeroesSelector } from './heroesSlice';
 
 const HeroesList = () => {
     // const { heroes, currentFilter } = useSelector((state) => state);
 
-    const heroes1 = createSelector(
-        (state) => state.filters.currentFilter,
-        (state) => state.heroes.heroes,
-        (currentFilter, heroes) => {
-            if (currentFilter === 'all') {
-                return heroes;
-            } else {
-                return heroes.filter((item) => item.element === currentFilter);
-            }
-        }
-    );
-
-    const filtredHeroes = useSelector(heroes1);
-
+    const filtredHeroes = useSelector(filtredHeroesSelector);
     const heroesLoadingStatus = useSelector((state) => state.heroes.heroesLoadingStatus);
+
     const dispatch = useDispatch();
     const { request } = useHttp();
 
     useEffect(() => {
-        dispatch(fetchHeroes(request));
-        // dispatch(heroesFetching());
-        // request('http://localhost:3001/heroes')
-        //     .then((data) => dispatch(heroesFetched(data)))
-        //     .catch(() => dispatch(heroesFetchingError()));
+        dispatch(fetchHeroes());
         // eslint-disable-next-line
     }, []);
 
@@ -62,7 +44,7 @@ const HeroesList = () => {
     };
 
     const renderHeroesList = (arr) => {
-        if (arr.length === 0) {
+        if (!arr || arr.length === 0) {
             return <h5 className="text-center mt-5">Героев пока нет</h5>;
         }
 

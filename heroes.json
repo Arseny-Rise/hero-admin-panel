@@ -1,56 +1,73 @@
 {
   "heroes": [
     {
-      "name": "234324",
-      "description": "234",
-      "element": "water",
-      "id": "97b20985-8247-4d72-bae5-7dcd9343c096"
-    },
-    {
-      "name": "234324675675765",
-      "description": "234",
-      "element": "fire",
-      "id": "e0ceeb88-a853-49e5-95b0-f4d91739ff6d"
-    },
-    {
-      "name": "Арсений",
-      "description": "808908",
-      "element": "fire",
-      "id": "43d990c6-fedb-4e20-9221-24f0a8b00269"
-    },
-    {
-      "name": "76556",
-      "description": "567",
-      "element": "fire",
-      "id": "9a6a8c81-99a7-4a26-aba8-476f18492cd7"
-    },
-    {
-      "name": "76556",
-      "description": "567",
+      "name": "123123",
+      "description": "123123",
       "element": "earth",
-      "id": "231bf5ab-6041-438a-8828-68071ba66a04"
+      "id": "a8b6cbf9-0240-4970-9632-c28f71342321"
+    },
+    {
+      "name": "345345",
+      "description": "45343543543",
+      "element": "water",
+      "id": "987744f7-9031-4761-98da-0d3d8517a058"
+    },
+    {
+      "name": "123",
+      "description": "23432423",
+      "element": "water",
+      "id": "1287e069-2cd5-4a2a-ae7e-344242d9c137"
+    },
+    {
+      "name": "23423",
+      "description": "234233445345543",
+      "element": "fire",
+      "id": "8c0eb85e-4211-4c36-a73f-5736201361e5"
+    },
+    {
+      "name": "23423",
+      "description": "234233445345543",
+      "element": "fire",
+      "id": "ba92f1d0-169a-465a-925b-9397ed65d297"
+    },
+    {
+      "name": "546564",
+      "description": "ghjghjgjgjgj\nghiguhjgjh",
+      "element": "fire",
+      "id": "08ae6810-c611-4e17-84d4-feb5dc743b23"
+    },
+    {
+      "name": "546564",
+      "description": "ghjghjgjgjgj\nghiguhjgjh",
+      "element": "wind",
+      "id": "828e5431-61c4-42a1-8a37-e6a152d12ddc"
     }
   ],
   "filters": [
-    [
-      "all",
-      "btn-outline-dark"
-    ],
-    [
-      "fire",
-      "btn-danger"
-    ],
-    [
-      "water",
-      "btn-primary"
-    ],
-    [
-      "wind",
-      "btn-success"
-    ],
-    [
-      "earth",
-      "btn-secondary"
-    ]
+    {
+      "id": "all",
+      "name": "all",
+      "style": "btn-outline-dark"
+    },
+    {
+      "id": "fire",
+      "name": "fire",
+      "style": "btn-danger"
+    },
+    {
+      "id": "water",
+      "name": "water",
+      "style": "btn-primary"
+    },
+    {
+      "id": "wind",
+      "name": "wind",
+      "style": "btn-success"
+    },
+    {
+      "id": "earth",
+      "name": "earth",
+      "style": "btn-secondary"
+    }
   ]
 }

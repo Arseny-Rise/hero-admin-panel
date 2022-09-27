@@ -1,20 +1,18 @@
-import { useHttp } from '../../hooks/http.hook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchFilters } from '../../actions';
-import { currentFilterSetted } from './filtresSlice';
+import { currentFilterSetted, fetchFilters, selectAll } from './filtresSlice';
+
+import store from '../../store';
 
 const HeroesFilters = () => {
-    const { filters, currentFilter } = useSelector((state) => state.filters);
+    const filters = useSelector(selectAll);
+    const currentFilter = useSelector((state) => state.filters.currentFilter);
+    console.log(filters);
     const dispatch = useDispatch();
-    const { request } = useHttp();
 
     useEffect(() => {
-        dispatch(fetchFilters(request));
-        // request('http://localhost:3001/filters').then((data) => {
-        //     dispatch(filtersFetched(data));
-        // });
+        dispatch(fetchFilters());
         // eslint-disable-next-line
     }, []);
 
@@ -27,10 +25,12 @@ const HeroesFilters = () => {
             return (
                 <button
                     key={idx}
-                    className={`btn ${filter[1]} ${filter[0] === currentFilter ? 'active' : ''}`}
-                    onClick={() => renderHeroesFiltered(filter[0])}
+                    className={`btn ${filter.style} ${
+                        filter.name === currentFilter ? 'active' : ''
+                    }`}
+                    onClick={() => renderHeroesFiltered(filter.name)}
                 >
-                    {filter[0]}
+                    {filter.name}
                 </button>
             );
         });
